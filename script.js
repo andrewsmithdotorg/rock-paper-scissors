@@ -6,7 +6,6 @@ function computerPlay() {
   }
   
   function playRound(playerSelection, computerSelection) {
-    console.log(computerSelection);
   
     playerSelection = playerSelection.toLowerCase();
     playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
@@ -14,7 +13,7 @@ function computerPlay() {
     const winMessage = "You Win! " + playerSelection + " beats " + computerSelection;
     const loseMessage = "You Lose! " + computerSelection + " beats " + playerSelection;
     if (playerSelection === computerSelection) {
-      return "tie!";
+      return "Both players selected " + playerSelection + "!  It's a tie!";
     } else if ((playerSelection == "Rock") && (computerSelection == "Paper")) {
       return loseMessage;
     } else if ((playerSelection == "Rock") && (computerSelection == "Scissors")) {
@@ -30,7 +29,28 @@ function computerPlay() {
     }
   }
   
-  const playerSelection = prompt("make a selection:");
-  const computerSelection = computerPlay();
+  function game () {
+    let wins = 0;
+    let losses = 0;
+    let ties = 0;
+    
+    for (let i = 0; i < 2; i++) {
   
-  console.log(playRound(playerSelection, computerSelection));
+      const playerSelection = prompt("make a selection:");
+      const computerSelection = computerPlay();
+      
+      if (playRound(playerSelection, computerSelection).includes("You Win!")) {
+        console.log(winMessage);
+        wins++;
+      } else if (playRound(playerSelection, computerSelection).includes("You Lose!")) {
+        console.log("failure");
+        losses++;
+      } else if (playRound(playerSelection, computerSelection).includes("tie!")) {
+        console.log("tie");
+        ties++;
+      }
+    }
+    console.log(wins);
+  }
+  
+  game();
