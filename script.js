@@ -6,26 +6,23 @@ function computerPlay() {
   }
   
   function playRound(playerSelection, computerSelection) {
-  
-    playerSelection = playerSelection.toLowerCase();
-    playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
     
     const winMessage = "You Win! " + playerSelection + " beats " + computerSelection;
     const loseMessage = "You Lose! " + computerSelection + " beats " + playerSelection;
     if (playerSelection === computerSelection) {
       return "Both players selected " + playerSelection + "!  It's a tie!";
     } else if ((playerSelection == "Rock") && (computerSelection == "Paper")) {
-      return loseMessage;
+      return "lose";
     } else if ((playerSelection == "Rock") && (computerSelection == "Scissors")) {
-      return winMessage;
+      return "win";
     } else if ((playerSelection == "Scissors") && (computerSelection == "Rock")) {
-      return loseMessage;
+      return "lose";
     } else if ((playerSelection == "Scissors") && (computerSelection == "Paper")) {
-      return winMessage;
+      return "win";
       } else if ((playerSelection == "Paper") && (computerSelection == "Rock")) {  
-      return loseMessage;
+      return "lose";
     } else if ((playerSelection == "Paper") && (computerSelection == "Scissors")) {
-      return winMessage;
+      return "win";
     }
   }
   
@@ -34,19 +31,23 @@ function computerPlay() {
     let losses = 0;
     let ties = 0;
     
-    for (let i = 0; i < 2; i++) {
+    for (let i = 0; i < 5; i++) {
   
-      const playerSelection = prompt("make a selection:");
+      let playerSelection = prompt("make a selection:");
+      playerSelection = playerSelection.toLowerCase();
+      playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
       const computerSelection = computerPlay();
+      const winMessage = "You Win! " + playerSelection + " beats " + computerSelection;
+      const loseMessage = "You Lose! " + computerSelection + " beats " + playerSelection;
       
-      if (playRound(playerSelection, computerSelection).includes("You Win!")) {
+      if (playRound(playerSelection, computerSelection) == "win") {
         console.log(winMessage);
         wins++;
-      } else if (playRound(playerSelection, computerSelection).includes("You Lose!")) {
-        console.log("failure");
+      } else if (playRound(playerSelection, computerSelection) == "lose") {
+        console.log(loseMessage);
         losses++;
-      } else if (playRound(playerSelection, computerSelection).includes("tie!")) {
-        console.log("tie");
+      } else {
+        console.log("Both players selected " + playerSelection + "!  It's a tie!");
         ties++;
       }
     }
