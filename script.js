@@ -30,8 +30,9 @@ function computerPlay() {
     let wins = 0;
     let losses = 0;
     let ties = 0;
+    let rounds = 5;
     
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < rounds; i++) {
   
       let playerSelection = prompt("make a selection:");
       playerSelection = playerSelection.toLowerCase();
@@ -50,8 +51,9 @@ function computerPlay() {
         console.log("Both players selected " + playerSelection + "!  It's a tie!");
         ties++;
       }
+      if (i < rounds - 1) {console.log("Current score: you: " + wins + "; me: " + losses);}
     }
-    console.log(wins);
+    console.log("Final score: you: " + wins + "; me: " + losses);
   }
   
   game();
