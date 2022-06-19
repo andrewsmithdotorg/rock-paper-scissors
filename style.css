@@ -1,7 +1,20 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     background-color: darkslategray;
 }
 
+#game {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+    gap: 2px;
+}
+
 #result {
     color: lightgrey;
+    text-align: center;
+    margin-top: 20px;
 }

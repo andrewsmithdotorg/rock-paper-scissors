@@ -12,13 +12,13 @@ function computerPlay() {
 }
 
 function playRound(playerSelection, computerSelection) {
-
   const winMessage =
     "You Win! " + playerSelection + " beats " + computerSelection;
   const loseMessage =
     "You Lose! " + computerSelection + " beats " + playerSelection;
   if (playerSelection === computerSelection) {
-    resultDiv.textContent = "Both players selected " + playerSelection + "!  It's a tie!";
+    resultDiv.textContent =
+      "Both players selected " + playerSelection + "!  It's a tie!";
   } else if (playerSelection == "Rock" && computerSelection == "Paper") {
     resultDiv.textContent = loseMessage;
   } else if (playerSelection == "Rock" && computerSelection == "Scissors") {
@@ -72,13 +72,19 @@ function game() {
 
 // DOM stuff
 
-const rockBtn = document.querySelector('#rock-btn');
-rockBtn.addEventListener('click', () => {playRound('Rock', computerPlay())});
+const rockBtn = document.querySelector("#rock-btn");
+rockBtn.addEventListener("click", () => {
+  playRound("Rock", computerPlay());
+});
 
-const paperBtn = document.querySelector('#paper-btn');
-paperBtn.addEventListener('click', () => {playRound('Paper', computerPlay())});
+const paperBtn = document.querySelector("#paper-btn");
+paperBtn.addEventListener("click", () => {
+  playRound("Paper", computerPlay());
+});
 
-const scissorsBtn = document.querySelector('#scissors-btn');
-scissorsBtn.addEventListener('click', () => {playRound('Scissors', computerPlay())});
+const scissorsBtn = document.querySelector("#scissors-btn");
+scissorsBtn.addEventListener("click", () => {
+  playRound("Scissors", computerPlay());
+});
 
-const resultDiv = document.querySelector('#result');
+const resultDiv = document.querySelector("#result");
