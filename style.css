@@ -1,20 +1,25 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    background-color: darkslategray;
+  background-color: darkslategray;
 }
 
 #game {
-    display: flex;
-    justify-content: center;
-    margin-top: 100px;
-    gap: 2px;
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+  gap: 20px;
+}
+
+button {
+    font-size: 48px;
+    width: 80px;
 }
 
 #result {
-    color: lightgrey;
-    text-align: center;
-    margin-top: 20px;
+  color: lightgrey;
+  text-align: center;
+  margin-top: 20px;
 }
