@@ -21,5 +21,20 @@ button {
 #result {
   color: lightgrey;
   text-align: center;
-  margin-top: 20px;
+  margin: 20px 0px;
+}
+
+#scoreboard {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+#player-score, #computer-score {
+    background-color: lightgrey;
+    font-size: 48px;
+    text-align: center;
+    min-width: 60px;
+    border-radius: 10px;
+    padding: 0px 10px;
 }

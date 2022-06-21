@@ -1,5 +1,8 @@
 // game logic
 
+let playerScore = 0;
+let computerScore = 0;
+
 function computerPlay() {
   let rand = Math.floor(Math.random() * 3) + 1;
   if (rand == 1) {
@@ -44,8 +47,12 @@ function playRound(playerSelection, computerSelection) {
     (playerSelection == "paper" && computerSelection == "scissors")
   ) {
     resultDiv.textContent = getLoseMessage(playerSelection, computerSelection);
+    computerScore++;
+    computerScoreDiv.textContent = computerScore;
   } else {
     resultDiv.textContent = getWinMessage(playerSelection, computerSelection);
+    playerScore++;
+    playerScoreDiv.textContent = playerScore;
   }
 }
 
@@ -67,3 +74,5 @@ scissorsBtn.addEventListener("click", () => {
 });
 
 const resultDiv = document.querySelector("#result");
+const playerScoreDiv = document.querySelector("#player-score");
+const computerScoreDiv = document.querySelector("#computer-score");
