@@ -54,6 +54,21 @@ function playRound(playerSelection, computerSelection) {
     playerScore++;
     playerScoreDiv.textContent = playerScore;
   }
+  if (playerScore >= 5 || computerScore >= 5) {
+    resetGame(playerScore, computerScore);
+  }
+}
+
+function resetGame (playerResult, computerResult) {
+  
+  let winnerStatement = "";
+  if (playerResult > computerResult) {winnerStatement = "You win!";}
+  else {winnerStatement = "Computer wins!"}
+  resultDiv.textContent = winnerStatement + "  Play again?";
+  playerScore = 0;
+  computerScore = 0;
+  playerScoreDiv.textContent = playerScore;
+  computerScoreDiv.textContent = computerScore;
 }
 
 // DOM stuff
