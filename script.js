@@ -48,27 +48,24 @@ function playRound(playerSelection, computerSelection) {
   ) {
     resultDiv.textContent = getLoseMessage(playerSelection, computerSelection);
     computerScore++;
-    computerScoreDiv.textContent = computerScore;
   } else {
     resultDiv.textContent = getWinMessage(playerSelection, computerSelection);
     playerScore++;
-    playerScoreDiv.textContent = playerScore;
   }
+  computerScoreDiv.textContent = computerScore;
+  playerScoreDiv.textContent = playerScore;
   if (playerScore >= 5 || computerScore >= 5) {
     resetGame(playerScore, computerScore);
   }
 }
 
 function resetGame (playerResult, computerResult) {
-  
   let winnerStatement = "";
   if (playerResult > computerResult) {winnerStatement = "You win!";}
   else {winnerStatement = "Computer wins!"}
-  resultDiv.textContent = winnerStatement + "  Play again?";
+  resultDiv.textContent = winnerStatement + "  Make a selection to play again.";
   playerScore = 0;
   computerScore = 0;
-  playerScoreDiv.textContent = playerScore;
-  computerScoreDiv.textContent = computerScore;
 }
 
 // DOM stuff
