@@ -18,7 +18,7 @@ button {
     width: 80px;
 }
 
-#result {
+#result, #flavor-message {
   color: lightgrey;
   text-align: center;
   margin: 20px 0px;

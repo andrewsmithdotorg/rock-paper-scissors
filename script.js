@@ -3,6 +3,9 @@
 let playerScore = 0;
 let computerScore = 0;
 
+let playerWins = 0;
+let computerWins = 0;
+
 function computerPlay() {
   let rand = Math.floor(Math.random() * 3) + 1;
   if (rand == 1) {
@@ -61,11 +64,17 @@ function playRound(playerSelection, computerSelection) {
 
 function resetGame (playerResult, computerResult) {
   let winnerStatement = "";
-  if (playerResult > computerResult) {winnerStatement = "You win!";}
-  else {winnerStatement = "Computer wins!"}
+  if (playerResult > computerResult) {
+    winnerStatement = "You win!";
+    playerWins++;
+  } else {
+    winnerStatement = "Computer wins!";
+    computerWins++;
+  }
   resultDiv.textContent = winnerStatement + "  Make a selection to play again.";
   playerScore = 0;
   computerScore = 0;
+  flavorDiv.textContent = "Your number of wins: " + playerWins;
 }
 
 // DOM stuff
@@ -88,3 +97,4 @@ scissorsBtn.addEventListener("click", () => {
 const resultDiv = document.querySelector("#result");
 const playerScoreDiv = document.querySelector("#player-score");
 const computerScoreDiv = document.querySelector("#computer-score");
+const flavorDiv = document.querySelector("#flavor-message");
