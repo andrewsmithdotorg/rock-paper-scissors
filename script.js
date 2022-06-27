@@ -11,6 +11,7 @@ let paperSelections = 0;
 let scissorSelections = 0;
 
 achievementCheck.neatCheck = 0;
+achievementCheck.scissorCheck = 0;
 
 function computerPlay() {
   let rand = Math.floor(Math.random() * 3) + 1;
@@ -75,9 +76,18 @@ function achievementCheck() {
     flavorDiv.textContent = "neat";
     achievementCheck.neatCheck++;
   }
+  if (
+    playerWins == 3 &&
+    rockSelections == 0 &&
+    paperSelections == 0 &&
+    achievementCheck.scissorCheck == 0
+  ) {
+    flavorDiv.textContent = "You're so good at scissoring!";
+    achievementCheck.scissorCheck++;
+  }
 }
 
-function resetGame (playerResult, computerResult) {
+function resetGame(playerResult, computerResult) {
   let winnerStatement = "";
   if (playerResult > computerResult) {
     winnerStatement = "You win!";
