@@ -6,6 +6,12 @@ let computerScore = 0;
 let playerWins = 0;
 let computerWins = 0;
 
+let rockSelections = 0;
+let paperSelections = 0;
+let scissorSelections = 0;
+
+achievementCheck.neatCheck = 0;
+
 function computerPlay() {
   let rand = Math.floor(Math.random() * 3) + 1;
   if (rand == 1) {
@@ -42,6 +48,7 @@ function getLoseMessage(playerSelection, computerSelection) {
 }
 
 function playRound(playerSelection, computerSelection) {
+  flavorDiv.textContent = "";
   if (playerSelection === computerSelection) {
     resultDiv.textContent = getTieMessage(playerSelection, computerSelection);
   } else if (
@@ -60,6 +67,14 @@ function playRound(playerSelection, computerSelection) {
   if (playerScore >= 5 || computerScore >= 5) {
     resetGame(playerScore, computerScore);
   }
+  achievementCheck();
+}
+
+function achievementCheck() {
+  if (playerWins == 1 && achievementCheck.neatCheck == 0) {
+    flavorDiv.textContent = "neat";
+    achievementCheck.neatCheck++;
+  }
 }
 
 function resetGame (playerResult, computerResult) {
@@ -74,7 +89,7 @@ function resetGame (playerResult, computerResult) {
   resultDiv.textContent = winnerStatement + "  Make a selection to play again.";
   playerScore = 0;
   computerScore = 0;
-  flavorDiv.textContent = "Your number of wins: " + playerWins;
+  //flavorDiv.textContent = "Your number of wins: " + playerWins;
 }
 
 // DOM stuff
@@ -82,16 +97,20 @@ function resetGame (playerResult, computerResult) {
 const rockBtn = document.querySelector("#rock-btn");
 rockBtn.addEventListener("click", () => {
   playRound("rock", computerPlay());
+  rockSelections++;
+  console.log(achievementCheck.neatCheck);
 });
 
 const paperBtn = document.querySelector("#paper-btn");
 paperBtn.addEventListener("click", () => {
   playRound("paper", computerPlay());
+  paperSelections++;
 });
 
 const scissorsBtn = document.querySelector("#scissors-btn");
 scissorsBtn.addEventListener("click", () => {
   playRound("scissors", computerPlay());
+  scissorSelections++;
 });
 
 const resultDiv = document.querySelector("#result");
